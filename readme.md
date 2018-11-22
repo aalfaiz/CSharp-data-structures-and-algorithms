@@ -8,3 +8,4 @@ List of usefull information about data structures and algorithms in C#
 
 ### References
 - [C# Data Structures and Algorithms](https://www.packtpub.com/mapt/book/application_development/9781788833738)
+- [Algorithms and Data Structures - part 1](https://app.pluralsight.com/library/courses/ads-part1)
