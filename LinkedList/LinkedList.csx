@@ -29,7 +29,6 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
         private set;
     }
 
-    
     #region Add
     public void AddLast(T value)
     {
@@ -72,7 +71,7 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
     #endregion
 
     #region Remove
-     public void RemoveFirst()
+    public void RemoveFirst()
     {
         Head = Head.Next;
         Count--;
@@ -113,16 +112,17 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
     }
     #endregion
 
-
     #region ICollection
     public int Count { get; private set; }
 
-    public bool IsReadOnly {
-        get{
+    public bool IsReadOnly
+    {
+        get
+        {
             return false;
         }
     }
-    
+
 
     public void Clear()
     {
@@ -134,9 +134,10 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
     public bool Contains(T item)
     {
         LinkedListNode<T> current = Head;
-        while(current != null)
+        while (current != null)
         {
-            if(current.Value.Equals(item)){
+            if (current.Value.Equals(item))
+            {
                 return true;
             }
             current = current.Next;
@@ -157,7 +158,7 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
     public IEnumerator<T> GetEnumerator()
     {
         LinkedListNode<T> current = Head;
-        while(current != null)
+        while (current != null)
         {
             yield return current.Value;
             current = current.Next;
@@ -180,28 +181,32 @@ public class LinkedList<T> : System.Collections.Generic.ICollection<T>
         //      a: node to remove is the first node
         //      b: node to remove is the middle or last
 
-        while(current !=null){
-            if(current.Value.Equals(item)){
+        while (current != null)
+        {
+            if (current.Value.Equals(item))
+            {
                 // it's a node in the middle or end
-                if(previous != null)
+                if (previous != null)
                 {
                     previous.Next = current.Next;
 
                     // it was the end - so update tail
-                    if(current.Next == null)
+                    if (current.Next == null)
                     {
                         Tail = previous;
                     }
-                    Count --;
-                }else{
+                    Count--;
+                }
+                else
+                {
                     // case 2 or 3a
                     RemoveFirst();
                 }
 
                 return true;
-            } 
+            }
             previous = current;
-            current = current.Next;  
+            current = current.Next;
         }
         return false;
 
